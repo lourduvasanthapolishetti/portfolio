@@ -1,0 +1,14 @@
+{
+  // Use the project's TypeScript version (matches tsconfig.json) instead of
+  // VS Code's bundled one — prevents editor-only phantom errors.
+  "typescript.tsdk": "node_modules/typescript/lib",
+  // Keep the Problems panel focused on open files
+  "problems.visibility": "default",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "editor.formatOnSave": true,
+  // Keep big generated folders out of the Problems panel's aggregated counts
+  "search.exclude": {
+    "**/dist": true,
+    "**/node_modules": true
+  }
+}

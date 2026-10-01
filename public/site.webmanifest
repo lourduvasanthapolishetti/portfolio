@@ -1,0 +1,25 @@
+{
+  "name": "Lourdu Vasantha Polishetti | Data Analyst | Power BI, SQL, Tableau",
+  "short_name": "Vasantha Polishetti",
+  "description": "Portfolio of Lourdu Vasantha Polishetti, a Data Analyst in Hyderabad specialising in Microsoft Power BI, SQL, Tableau and Advanced Excel.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0B0F17",
+  "theme_color": "#0B0F17",
+  "lang": "en-IN",
+  "icons": [
+    {
+      "src": "./favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "./og-image.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
