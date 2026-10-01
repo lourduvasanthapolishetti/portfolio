@@ -1,3 +1,57 @@
+# Deployment & Troubleshooting
+
+## Live URL
+
+```
+https://lourduvasanthapolishetti.github.io/portfolio/
+```
+
+GitHub Pages serves a project site from `/<repo-name>/`. The repo is `portfolio`,
+so the path is `/portfolio/` — **not** `/Portfolio-Data-Analyst/`.
+
+## Deploying
+
+```bash
+git add -A
+git commit -m "Deploy portfolio"
+git push origin main
+```
+
+The `Deploy to GitHub Pages` workflow builds and publishes automatically on every
+push to `main`. You can also trigger it manually from the **Actions** tab →
+*Deploy to GitHub Pages* → *Run workflow*.
+
+## "Get Pages site failed" / "Not Found" on configure-pages
+
+**Cause:** Pages has never been enabled for the repository. GitHub has no Pages
+site to configure, so the API returns 404. The workflow itself is correct.
+
+**Fix (one-time, in the browser):**
+
+1. Go to <https://github.com/lourduvasanthapolishetti/portfolio/settings/pages>
+2. Under **Build and deployment → Source**, choose **GitHub Actions**
+3. Save, then re-run the workflow
+
+The workflow already passes `enablement: true` to `actions/configure-pages@v5`,
+which switches Pages on automatically — but that requires the `pages: write`
+permission and the **GitHub Actions** source to be selectable. If auto-enablement
+is blocked (organisation policy, or Actions disabled for the repo), enable it
+manually using the steps above.
+
+**Also check:** *Settings → Actions → General → Workflow permissions* must be set
+to **Read and write permissions**, otherwise the Pages deployment is rejected.
+
+## Verifying a deploy
+
+```bash
+curl -I https://lourduvasanthapolishetti.github.io/portfolio/
+curl -s https://lourduvasanthapolishetti.github.io/portfolio/robots.txt
+```
+
+You should get `200` and a `Sitemap:` line pointing back at `/portfolio/sitemap.xml`.
+
+---
+
 # SEO & Ranking Guide
 
 Everything in this repo is on-page and technical SEO. On-page work is necessary but

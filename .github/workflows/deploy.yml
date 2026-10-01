@@ -18,6 +18,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      # Runs first so a misconfigured Pages site fails fast, before spending
+      # several minutes on npm ci and a production build.
+      - uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
@@ -37,8 +43,6 @@ jobs:
           # robots.txt. Set this to your custom domain when you own one, e.g.
           # https://lourduvasanthapolishetti.com/
           SITE_URL: ${{ vars.SITE_URL || format('https://{0}.github.io/{1}/', github.repository_owner, github.event.repository.name) }}
-
-      - uses: actions/configure-pages@v5
 
       - uses: actions/upload-pages-artifact@v3
         with:
